@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <link
+               rel="icon"
+               type="image/png"
+               sizes="32x32"
+               href="./images/favicon-32x32.png"
+          />
+          <title>Frontend Mentor | Interactive card details form</title>
+          <link rel="stylesheet" href="style.css" />
+     </head>
+     <body>
+          <!-- 0000 0000 0000 0000 Jane Appleseed 00/00 000 Cardholder Name e.g. Jane
+          Appleseed Card Number e.g. 1234 5678 9123 0000 Exp. Date (MM/YY) MM YY
+          CVC e.g. 123 Confirm -->
+
+          <main>
+               <section class="card-left">
+                    <div class="card-left-top">
+                         <img
+                              src="images/bg-card-front.png"
+                              alt="card-front"
+                              class="bg-card-front"
+                         />
+                         <div class="card-front-innerdetails">
+                              <img src="images/card-logo.svg" alt="card-log" />
+                              <p class="card-no">9591 6489 6389 101E</p>
+                              <p class="card-name">
+                                   <span class="c-name">Felicia Leire</span>
+                                   <span class="date">
+                                        <span class="exp-date">09</span>/<span
+                                             class="exp-year"
+                                             >00</span
+                                        >
+                                   </span>
+                              </p>
+                         </div>
+                    </div>
+                    <div class="card-left-bottom">
+                         <img
+                              src="images/bg-card-back.png"
+                              alt="card-back"
+                              class="bg-card-back"
+                         />
+                         <span class="card-back-innerdetails">000</span>
+                    </div>
+               </section>
+               <section class="right">
+                    <form class="form">
+                         <div class="form-top">
+                              <label for="cardholder-name"
+                                   >Cardholder Name</label
+                              >
+                              <input
+                                   type="text"
+                                   id="cardholder-name"
+                                   class="cardholder-name"
+                                   name="cardholder"
+                                   placeholder="e.g. Felicia Leire"
+                              />
+                              <div class="error">
+                                   Wrong format, letters only
+                              </div>
+                         </div>
+
+                         <div class="form-middle">
+                              <label for="card-number">Card Number</label>
+                              <input
+                                   type="text"
+                                   id="card-number"
+                                   class="card-number"
+                                   name="card-number"
+                                   placeholder="e.g. 9591 6489 6389 101E"
+                                   minlength="20"
+                                   maxlength="20"
+                              />
+                              <div class="error-two">
+                                   Wrong format, numbers only
+                              </div>
+                         </div>
+
+                         <div class="form-bottom">
+                              <div class="exp-date-container">
+                                   <label for="expiry-date"
+                                        >Exp.Date(MM/YY)</label
+                                   >
+                                   <input
+                                        type="number"
+                                        id="expiry-date"
+                                        name="expiry-month"
+                                        class="expiry-month"
+                                        placeholder="MM"
+                                        minlength="2"
+                                        maxlength="2"
+                                   />
+                                   <input
+                                        type="number"
+                                        id="expiry-date"
+                                        name="expiry-year"
+                                        class="expiry-year"
+                                        placeholder="YY"
+                                        minlength="2"
+                                        maxlength="2"
+                                   />
+                                   <div class="error-three">Can't be blank</div>
+                              </div>
+
+                              <div class="cvc-container">
+                                   <label for="cvc">CVC</label>
+                                   <input
+                                        type="number"
+                                        id="cvc"
+                                        name="cvc"
+                                        class="cvc"
+                                        placeholder="123"
+                                        minlength="3"
+                                        maxlength="3"
+                                   />
+                                   <div class="error-three">Can't be blank</div>
+                              </div>
+                         </div>
+                         <input
+                              type="button"
+                              value="Confirm"
+                              class="confirm-button"
+                         />
+                    </form>
+
+                    <!-- Completed state start -->
+
+                    <div class="thank-you-sec">
+                         <img
+                              src="images/icon-complete.svg"
+                              alt="icon-complete"
+                         />
+                         <h3>Thank you!</h3>
+                         <p>We've added your card details</p>
+                         <button
+                              type="button"
+                              onclick="window.location = 'https://twtter.com/JimohAbdulsam1' "
+                         >
+                              Continue
+                         </button>
+                    </div>
+               </section>
+          </main>
+
+          <div class="attribution">
+               Challenge by
+               <a
+                    href="https://www.frontendmentor.io?ref=challenge"
+                    target="_blank"
+                    >Frontend Mentor</a
+               >. Coded by
+               <a href="https://www.twitter.com/JimohAbdulsam1">Abdulsamad</a>.
+          </div>
+
+          <script src="app.js"></script>
+     </body>
+</html>
