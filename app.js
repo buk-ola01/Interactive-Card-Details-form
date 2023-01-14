@@ -20,21 +20,6 @@ function changeState() {
      form.style.display = "none";
 }
 
-confirmButton.onclick = function (e) {
-     if (
-          cardNumberInput.value.length == 0 ||
-          cardHolderNameInput.value.length == 00 ||
-          expiryMonthInput.value.length == 0 ||
-          expiryYearInput.value.length == 0 ||
-          cvcInput.value.length == 0
-     ) {
-          alert("Must fill all input field");
-          e.preventDefault();
-     } else {
-          changeState();
-     }
-};
-
 confirmButton.addEventListener("click", function (e) {
      if (
           (errorOne.style.display = "block") ||
@@ -42,6 +27,7 @@ confirmButton.addEventListener("click", function (e) {
           (errorThree.style.display = "block")
      ) {
           alert("Must follow all format");
+          return;
           e.preventDefault();
      } else {
           changeState();
@@ -51,7 +37,7 @@ cardHolderNameInput.addEventListener("keydown", function (e) {
      if (e.key >= 0 && e.key <= 9) {
           errorOne.style.display = "block";
           this.style.border = "1px solid red";
-          cardNameDisplay.innerHTML != this.value;
+          return;
      } else {
           errorOne.style.display = "none";
           this.style.border = "";
@@ -70,13 +56,12 @@ cardNumberInput.addEventListener("keydown", function (e) {
      if (e.key >= 0 && e.key <= 9) {
           errorTwo.style.display = "none";
           this.style.border = "";
-          cardNumberInput.oninput = function () {
-               cardNoDisplay.innerHTML = cardNumberInput.value;
-          };
+          cardNumberInput.addEventListener("input", function () {
+               cardNoDisplay.innerHTML = this.value;
+          });
      } else {
           errorTwo.style.display = "block";
           this.style.border = "1px solid red";
-          cardNoDisplay.innerHTML != cardNumberInput.value;
      }
 });
 
@@ -94,14 +79,16 @@ expiryMonthInput.addEventListener("keydown", function (e) {
 
      if (e.target.value.length > 2) {
           alert("Maxlength must be 2");
-          e.preventDefault();
+          errorThree.style.display = "block";
+          this.style.border = "1px solid red";
      }
 });
 
 expiryYearInput.addEventListener("keydown", function (e) {
      if (e.target.value.length > 2) {
           alert("Maxlength must be 2");
-          e.preventDefault();
+          errorThree.style.display = "block";
+          this.style.border = "1px solid red";
      } else {
           expiryYearInput.oninput = function () {
                expYearDisplay.innerHTML = expiryYearInput.value;
@@ -123,6 +110,7 @@ cvcInput.addEventListener("keydown", function (e) {
 
      if (e.target.value.length > 3) {
           alert("Maxlength must be 3");
-          e.preventDefault();
+          errorThree.style.display = "block";
+          this.style.border = "1px solid red";
      }
 });
