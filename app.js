@@ -47,7 +47,7 @@ confirmButton.addEventListener("click", function (e) {
           changeState();
      }
 });
-cardHolderNameInput.addEventListener("keypress", function (e) {
+cardHolderNameInput.addEventListener("keydown", function (e) {
      if (e.key >= 0 && e.key <= 9) {
           errorOne.style.display = "block";
           this.style.border = "1px solid red";
@@ -61,7 +61,7 @@ cardHolderNameInput.addEventListener("keypress", function (e) {
      }
 });
 
-cardNumberInput.addEventListener("keypress", function (e) {
+cardNumberInput.addEventListener("keydown", function (e) {
      if (e.target.value.length % 5 === 4) {
           e.preventDefault();
           e.target.value += " ";
@@ -80,7 +80,7 @@ cardNumberInput.addEventListener("keypress", function (e) {
      }
 });
 
-expiryMonthInput.addEventListener("keypress", function (e) {
+expiryMonthInput.addEventListener("keydown", function (e) {
      if (e.target.value.length == 0 || e.target.value > 12) {
           errorThree.style.display = "block";
           this.style.border = "1px solid red";
@@ -92,14 +92,14 @@ expiryMonthInput.addEventListener("keypress", function (e) {
           };
      }
 
-     if (e.target.value.length >= 2) {
+     if (e.target.value.length > 2) {
           alert("Maxlength must be 2");
           e.preventDefault();
      }
 });
 
-expiryYearInput.addEventListener("keypress", function (e) {
-     if (e.target.value.length >= 2) {
+expiryYearInput.addEventListener("keydown", function (e) {
+     if (e.target.value.length > 2) {
           alert("Maxlength must be 2");
           e.preventDefault();
      } else {
@@ -109,7 +109,7 @@ expiryYearInput.addEventListener("keypress", function (e) {
      }
 });
 
-cvcInput.addEventListener("keypress", function (e) {
+cvcInput.addEventListener("keydown", function (e) {
      if (e.target.value.length == 0) {
           errorThree.style.display = "block";
           this.style.border = "1px solid red";
@@ -121,7 +121,7 @@ cvcInput.addEventListener("keypress", function (e) {
           };
      }
 
-     if (e.target.value.length >= 3) {
+     if (e.target.value.length > 3) {
           alert("Maxlength must be 3");
           e.preventDefault();
      }
